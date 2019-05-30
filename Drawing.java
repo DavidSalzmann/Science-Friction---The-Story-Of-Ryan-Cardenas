@@ -19,11 +19,10 @@ public static void main(String[] args) {
     public void paint(Graphics g) {
         g.fillRect(150, 100, 100, 10);
         g.fillRect(300, 300, 100, 10);
-        g.fillRect(500, 300, 100, 10);
-        g.fillRect(700, 300, 100, 10);
+        g.fillRect(450, 300, 300, 10);
         g.fillRect(900, 300, 400, 10);
-      //  g.fillRect(2000,300, 600, 10);
-        g.fillOval(2600, 300, 50, 50);
+        g.fillOval(1300, 250, 50, 50);
+        
     }
   
 }
