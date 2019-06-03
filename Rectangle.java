@@ -1,14 +1,36 @@
+package amazingPackageOfAmazingness;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.Ellipse2D;
+
+import javax.swing.*;
+
 
 public class Rectangle {
-
 	public Rectangle(int i, int j, int k, int l) {
 		
+		
 	}
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		Graphics2D g2 = (Graphics2D) g;
+		Rectangle rect = new Rectangle(x, y, z, q);
+		g.setColor(new Color(147, 112, 219));
+		g2.fill(rect);
 
-	Rectangle a = new Rectangle (150, 100, 100, 10);
-	Rectangle b = new Rectangle (300, 300, 100, 10);
-	Rectangle c = new Rectangle (450, 300, 300, 10);
-	Rectangle d = new Rectangle (800, 300, 125, 10);
-	Rectangle e = new Rectangle (950, 300, 150, 10);
-	Rectangle f = new Rectangle (1100, 300, 200, 10);
+	
+	public void paint(Graphics g) {
+        g.fillRect(150, 100, 100, 10);
+        g.fillRect(300, 300, 100, 10);
+        g.fillRect(500, 300, 100, 10);
+        g.fillRect(700, 300, 100, 10);
+        g.fillRect(450, 300, 300, 10);
+        g.fillRect(900, 300, 400, 10);
+      //  g.fillRect(2000,300, 600, 10);
+        g.fillOval(2600, 300, 50, 50);
+        g.fillOval(1300, 250, 50, 50);
+
+    }
+	
 }
