@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 
 public class Drawing extends Canvas {  
 public static void main(String[] args) {
-        JFrame frame = new JFrame("Hopefully more than an oval");
+        JFrame frame = new JFrame("A Level");
         Canvas canvas = new Drawing();
         canvas.setSize(1920, 1080);
         frame.add(canvas);
@@ -17,13 +17,14 @@ public static void main(String[] args) {
     }
 
     public void paint(Graphics g) {
-        g.fillRect(150, 100, 100, 10);
-        g.fillRect(300, 300, 100, 10);
-        g.fillRect(500, 300, 100, 10);
-        g.fillRect(700, 300, 100, 10);
-        g.fillRect(900, 300, 400, 10);
-      //  g.fillRect(2000,300, 600, 10);
-        g.fillOval(2600, 300, 50, 50);
+        g.fillRect(105, 950, 100, 10);
+        g.fillRect(300, 850, 100, 10);
+        g.fillRect(450, 750, 300, 10);
+        g.fillRect(800, 650, 125, 10);
+        g.fillRect(950, 550, 150, 10);
+        g.fillRect(1100, 350, 200, 10);
+        g.fillOval(1300, 250, 50, 50);
+        
     }
-  
+
 }
