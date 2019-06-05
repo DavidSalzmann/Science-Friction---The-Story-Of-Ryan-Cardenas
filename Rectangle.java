@@ -1,15 +1,34 @@
-public class Rectangle {
+//package amazingPackageOfAmazingness;
+//import java.awt.Color;
+//import java.awt.Graphics;
+//import java.awt.Graphics2D;
+//import java.awt.geom.Ellipse2D;
 
-	public Rectangle(int i, int j, int k, int l) {
+//import javax.swing.*;
 
-	}
 
-	Rectangle a = new Rectangle (105, 950, 100, 10);
-	Rectangle b = new Rectangle (300, 850, 100, 10);
-	Rectangle c = new Rectangle (450, 750, 300, 10);
-	Rectangle d = new Rectangle (800, 650, 125, 10);
-	Rectangle e = new Rectangle (950, 550, 150, 10);
-	Rectangle f = new Rectangle (1100, 350, 200, 10);
-	Rectangle deathBox = new Rectangle (0, 1000, 1920, 80);
+//public class Rectangle extends JPanel {
+	//private int x = 0;
+	//private int j = 0;
+	//private int k = 0;
+	//private int l = 0;
+	
+	//public Rectangle(int i, int j, int k, int l) {
 
-}
+	//}
+	
+	//public void paintComponent(Graphics g) {
+		    //super.paintComponent(g);
+		   // Graphics2D g2d = (Graphics2D) g;
+
+		  //  g2d.setColor(new Color(212, 212, 212));
+		   // g2d.drawRect(10, 15, 90, 60);
+
+
+		   // g2d.setColor(new Color(31, 21, 1));
+		   // g2d.fillRect(150, 100, 100, 10);
+	
+//	}
+	
+	
+//}
