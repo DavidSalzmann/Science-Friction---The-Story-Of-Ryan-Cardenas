@@ -10,6 +10,7 @@ public class Second extends JPanel implements ActionListener, KeyListener{
 	Timer t = new Timer(5, this);
 	double x = 250, y = 250, velX = 0, velY = 0, accY = .2, m = 25, mew = .8,  accX = accY*mew;
 	double rectx = 0;
+	double recty = 0;
 	Ellipse2D circle ;
 	Rectangle2D a = new Rectangle2D.Double(105, 950, 100, 10);
 	Rectangle2D b = new Rectangle2D.Double(300, 850, 100, 10);
@@ -61,8 +62,9 @@ public class Second extends JPanel implements ActionListener, KeyListener{
 	
 	  for (int i = 0; i < boundz.length; i++) {
 		  rectx = rects[i].getCenterX();
-		  if ((x < rectx + ((rects[i].getWidth())/2)) && (x > rectx - ((rects[i].getWidth())/2)) )
-	   velY = 0;
+		  recty = rects[i].getCenterY();
+		  if ((x < rectx + ((rects[i].getWidth())/2)) && (x > rectx - ((rects[i].getWidth())/2)) && (y < recty + ((rects[i].getHeight())/2)) && (y > recty - ((rects[i].getHeight())/2)))
+	   velY = -velY;
 	  }
 		//if (collision == true) {
 	//		velX = -velX;
