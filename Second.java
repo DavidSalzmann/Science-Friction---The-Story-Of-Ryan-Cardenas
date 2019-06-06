@@ -51,12 +51,14 @@ public class Second extends JPanel implements ActionListener, KeyListener{
 		   g.fillRect(450, 750, 300, 10);
 		   g.fillRect(800, 650, 125, 10);
 		 //  g.fillRect(450, 300, 300, 10);
+		   g.setColor(new Color(255,135,195));
 		   g.fillRect(950, 550, 150, 10);
 		   g.fillRect(1100,350, 200, 10);
 		   g.fillRect(1450,250, 200, 10);
 		 //  g.fillRect(200,30, 600, 10);
 		 //  g.fillOval(2600, 300, 50, 50);
-		   g.fillOval(1700, 50, 50, 50);
+		   g.setColor(new Color(75,0,130));
+		   g.fillOval(1700, 50, 60, 80);
 		   for (int i = 0; i < rects.length; i++) {
 					boundz[i] = rects[i].getBounds();
 				}
