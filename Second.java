@@ -7,10 +7,15 @@ import java.awt.geom.*;
 
 
 public class Second extends JPanel implements ActionListener, KeyListener{
-	Timer t = new Timer(5, this);
-	double x = 250, y = 250, velX = 0, velY = 0, accY = .2, m = 25, mew = .8,  accX = accY*mew;
+	Timer t = new Timer(10, this);
+	double x = 250, y = 250, velX = 0, velY = 0, accY = .5, m = 25, mew = .1,  accX = accY*mew;
 	double rectx = 0;
 	double recty = 0;
+	double tempX = 0;
+	double tempY = 0;
+	double tempVX = 0;
+	double tempVY = 0;
+	boolean collide = false;
 	Ellipse2D circle ;
 	Rectangle2D a = new Rectangle2D.Double(105, 950, 100, 10);
 	Rectangle2D b = new Rectangle2D.Double(300, 850, 100, 10);
@@ -21,7 +26,7 @@ public class Second extends JPanel implements ActionListener, KeyListener{
 	Rectangle[] boundz = new Rectangle[rects.length];
 
 	
-	boolean collision = false;
+
 
 	
 	public Second() {
@@ -42,7 +47,7 @@ public class Second extends JPanel implements ActionListener, KeyListener{
 		   g.fillRect(300, 850, 100, 10);
 		   g.fillRect(450, 750, 300, 10);
 		   g.fillRect(800, 650, 125, 10);
-		   g.fillRect(450, 300, 300, 10);
+		 //  g.fillRect(450, 300, 300, 10);
 		   g.fillRect(950, 550, 150, 10);
 		   g.fillRect(1100,350, 200, 10);
 		 //  g.fillRect(200,30, 600, 10);
@@ -53,26 +58,40 @@ public class Second extends JPanel implements ActionListener, KeyListener{
 				}
 	}
 	public void actionPerformed(ActionEvent e) {
-		if (x < 0  || x > 1880) {
-			velX = -velX;
+		
+		velY += accY;
+		if (velX > 0) {
+			velX -= accX;
 		}
-		if (y < 0  || y > 1040) {
-			velY = -velY;
+		else if (velX < 0) {
+			velX += accX;
+		}
+		for (int i = 0; i < boundz.length; i++) {
+			  rectx = rects[i].getCenterX();
+			  recty = rects[i].getCenterY();
+			  if (((x + velX) < rectx + ((rects[i].getWidth())/2)) && ((x + velX)> rectx - ((rects[i].getWidth())/2)) && ((y + velY) < recty + ((rects[i].getHeight())/2)) && ((y + velY) > recty - ((rects[i].getHeight())/2) - 40)){
+		   velY = -velY/2;
+		   collide = true;
+		  }
+			  else {
+				  collide = false;
+			  }
+		}
+		
+		if (((x + velX) < 0  || (x + velX) > 1880) ) {
+			velX = -velX;
+			collide = true;
+		}
+	    if ((y + velY) < 0  || (y + velY) > 1040) {
+			velY = -velY/2;
+			collide = true;
 		}
 	
-	  for (int i = 0; i < boundz.length; i++) {
-		  rectx = rects[i].getCenterX();
-		  recty = rects[i].getCenterY();
-		  if ((x < rectx + ((rects[i].getWidth())/2)) && (x > rectx - ((rects[i].getWidth())/2)) && (y < recty + ((rects[i].getHeight())/2)) && (y > recty - ((rects[i].getHeight())/2)))
-	   velY = -velY;
-	  }
-		//if (collision == true) {
-	//		velX = -velX;
-	//	}
-		//velX -= accX;
-		velY += accY;
+		
+	    if (!collide) {
 		x += velX;
 		y += velY;
+			  }
 		repaint();
 	
 	}
@@ -86,37 +105,84 @@ public class Second extends JPanel implements ActionListener, KeyListener{
 	}
 	public void left() {
 		velY +=  0;
-		velX += -2.5;
+		velX += -1.5;
 	}
 	public void right() {
 		velY += 0;
-		velX += 2.5;
+		velX += 1.5;
 	}
 	public void keyPressed(KeyEvent e) {
 		int code = e.getKeyCode();
 		if (code == KeyEvent.VK_UP) {
-			up();
+			for (int i = 0; i < boundz.length; i++) {
+				  tempVX = velX;
+				  tempVY = velY - 2.5;
+				  tempX += tempVX;
+				  tempY += tempVY;
+				  rectx = rects[i].getCenterX();
+				  recty = rects[i].getCenterY();
+				  if (((tempX < rectx + ((rects[i].getWidth())/2)) && (tempX > rectx - ((rects[i].getWidth())/2)) && (tempY < recty + ((rects[i].getHeight())/2)) && (tempY > recty - ((rects[i].getHeight())/2) - 40))){
+					  velY = -velY;
+			  }
+				  else {
+					  up();
+				  }
+		}
 		}
 		if (code == KeyEvent.VK_DOWN) {
-			down();
+			for (int i = 0; i < boundz.length; i++) {
+				  tempVY = velY + 2.5;
+				  tempVX = velX;
+				  tempX += tempVX;
+				  tempY += tempVY;
+				  rectx = rects[i].getCenterX();
+				  recty = rects[i].getCenterY();
+				  if (((tempX < rectx + ((rects[i].getWidth())/2)) && (tempX > rectx - ((rects[i].getWidth())/2)) && (tempY < recty + ((rects[i].getHeight())/2)) && (tempY > recty - ((rects[i].getHeight())/2) - 40))){
+					  velY = -velY;
+			  }
+				  else {
+					  down();
+				  }
+		}
 		}
 		if (code == KeyEvent.VK_LEFT) {
-			left();
+			for (int i = 0; i < boundz.length; i++) {
+				  tempVY = velY ;
+				  tempVX = velX - 2.5;
+				  tempX += tempVX;
+				  tempY += tempVY;
+				  rectx = rects[i].getCenterX();
+				  recty = rects[i].getCenterY();
+				  if (((tempX < rectx + ((rects[i].getWidth())/2)) && (tempX > rectx - ((rects[i].getWidth())/2)) && (tempY < recty + ((rects[i].getHeight())/2)) && (tempY > recty - ((rects[i].getHeight())/2) - 40))){
+					  velX = -velX;
+			  }
+				  else {
+					  left();
+				  }
+		}
 		}
 		if (code == KeyEvent.VK_RIGHT) {
-			right();
+			for (int i = 0; i < boundz.length; i++) {
+				  tempVY = velY ;
+				  tempVX = velX + 2.5;
+				  tempX += tempVX;
+				  tempY += tempVY;
+				  rectx = rects[i].getCenterX();
+				  recty = rects[i].getCenterY();
+				  if (((tempX < rectx + ((rects[i].getWidth())/2)) && (tempX > rectx - ((rects[i].getWidth())/2)) && (tempY < recty + ((rects[i].getHeight())/2)) && (tempY > recty - ((rects[i].getHeight())/2) - 40))){
+					  velX = -velX;
+			      }
+				  else {
+					  right();
+				  }
+		      }
+	    }
 		}
-		
-	}
 	public void keyTyped(KeyEvent e) {}
 	
 	public void keyReleased(KeyEvent e) {}
 	
-	public void collision(Rectangle2D q) {
-		if (circle.intersects(q)) {
-			collision = true;
-		}
-	}
+	
 
 	
 	
