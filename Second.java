@@ -8,7 +8,7 @@ import java.awt.geom.*;
 
 public class Second extends JPanel implements ActionListener, KeyListener{
 	Timer t = new Timer(10, this);
-	double x = 250, y = 250, velX = 0, velY = 0, accY = .5, m = 25, mew = .1,  accX = accY*mew;
+	double x = 250, y = 250, velX = 0, velY = 0, accY = .8, m = 25, mew = .1,  accX = accY*mew;
 	double rectx = 0;
 	double recty = 0;
 	double tempX = 0;
@@ -23,8 +23,9 @@ public class Second extends JPanel implements ActionListener, KeyListener{
 	Rectangle2D d = new Rectangle2D.Double(800, 650, 125, 10);
 	Rectangle2D e = new Rectangle2D.Double(950, 550, 150, 10);
 	Rectangle2D f = new Rectangle2D.Double(1100,350, 200, 10);
+	Rectangle2D h = new Rectangle2D.Double(1450,250, 200, 10);
 	
-	Rectangle2D[] rects = {a, b, c, d, e, f};
+	Rectangle2D[] rects = {a, b, c, d, e, f, h};
 	Rectangle[] boundz = new Rectangle[rects.length];
 
 	
@@ -52,9 +53,10 @@ public class Second extends JPanel implements ActionListener, KeyListener{
 		 //  g.fillRect(450, 300, 300, 10);
 		   g.fillRect(950, 550, 150, 10);
 		   g.fillRect(1100,350, 200, 10);
+		   g.fillRect(1450,250, 200, 10);
 		 //  g.fillRect(200,30, 600, 10);
-		   g.fillOval(2600, 300, 50, 50);
-		   g.fillOval(1300, 250, 50, 50);
+		 //  g.fillOval(2600, 300, 50, 50);
+		   g.fillOval(1700, 50, 50, 50);
 		   for (int i = 0; i < rects.length; i++) {
 					boundz[i] = rects[i].getBounds();
 				}
@@ -71,7 +73,7 @@ public class Second extends JPanel implements ActionListener, KeyListener{
 		for (int i = 0; i < boundz.length; i++) {
 			  rectx = rects[i].getCenterX();
 			  recty = rects[i].getCenterY();
-			  if (((x + velX) < rectx + ((rects[i].getWidth())/2)) && ((x + velX)> rectx - ((rects[i].getWidth())/2)) && ((y + velY) < recty + ((rects[i].getHeight())/2)) && ((y + velY) > recty - ((rects[i].getHeight())/2) - 40)){
+			  if (((x + velX) < rectx + ((rects[i].getWidth())/2) ) && ((x + velX)> rectx - ((rects[i].getWidth())/2) - 40 ) && ((y + velY) < recty + ((rects[i].getHeight())/2)) && ((y + velY) > recty - ((rects[i].getHeight())/2) - 40)){
 		   velY = -velY/2;
 		   collide = true;
 		  }
