@@ -22,7 +22,9 @@ public class Second extends JPanel implements ActionListener, KeyListener{
 	Rectangle2D c = new Rectangle2D.Double(450, 750, 300, 10);
 	Rectangle2D d = new Rectangle2D.Double(800, 650, 125, 10);
 	Rectangle2D e = new Rectangle2D.Double(950, 550, 150, 10);
-	Rectangle2D[] rects = {a, b, c, d, e};
+	Rectangle2D f = new Rectangle2D.Double(1100,350, 200, 10);
+	
+	Rectangle2D[] rects = {a, b, c, d, e, f};
 	Rectangle[] boundz = new Rectangle[rects.length];
 
 	
