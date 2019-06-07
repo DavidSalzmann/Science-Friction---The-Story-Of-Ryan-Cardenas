@@ -1,0 +1,49 @@
+package amazingPackageOfAmazingness;
+
+import java.awt.Color;
+import java.awt.geom.Rectangle2D;
+
+import javax.swing.*;
+
+public class DeathEntity {
+
+	private int length;
+	private int height;
+	private int xPos;
+	private int yPos;
+	private int colorRed;
+	private int colorGreen;
+	private int colorBlue;
+	
+	public DeathEntity(int xPos, int yPos, int width, int height, int colorRed, int colorGreen, int colorBlue)
+	{
+		this.height = height;
+		this.length = length;
+		this.xPos = xPos;
+		this.yPos = yPos;
+		this.colorRed = colorRed;
+		this.colorGreen = colorGreen;
+		this.colorBlue = colorBlue;
+	}
+	
+	public int getLength()
+	{
+		return length;
+	}
+	
+	public int getHeight()
+	{
+		return height;
+	}
+	
+	public int getXPos()
+	{
+		return xPos;
+	}
+	
+	public int geYPos()
+	{
+		return yPos;
+	}
+	
+}
