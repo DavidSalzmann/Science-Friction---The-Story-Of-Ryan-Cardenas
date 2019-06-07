@@ -1,4 +1,3 @@
-package background;
 
 /*
  * original HelloWorldGUI2 from:
@@ -14,6 +13,9 @@ import javax.swing.*;
 import java.awt.image.*;
 import java.io.*;
 import javax.imageio.*;
+import java.awt.BorderLayout;
+import java.awt.Component;
+
 public class HelloWorldGUI2 {
    private static class HelloWorldDisplay extends JPanel {
       public void paintComponent(Graphics g) {
@@ -33,6 +35,13 @@ public class HelloWorldGUI2 {
 	    String userprofile = System.getenv("USERPROFILE");
 	    public void paint(Graphics g) {
 	        g.drawImage(img, 0, 0, 1920, 1080, null);
+	        Second s = new Second();
+	        JFrame f = new JFrame();
+	        f.add(s);
+	        f.setVisible(true);
+	        f.setSize(1920, 1080);
+	        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	        f.setTitle("Moving Ball");
 	    }
 	 
 	    public LoadImageApp() {
@@ -81,3 +90,5 @@ public class HelloWorldGUI2 {
    }
    
 }
+
+
