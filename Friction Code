@@ -1,4 +1,6 @@
-if (x > 600 && velX > 0)
+if (((x + velX) < rectx + ((rects[i].getWidth())/2)) && ((x + velX)> rectx - ((rects[i].getWidth())/2)) && ((y + velY) < recty + ((rects[i].getHeight())/2)) && ((y + velY) > recty - ((rects[i].getHeight())/2) - 40)){
+		   velY = -velY/2;
+		   		if (x > 600 && velX > 0)
 		   		{
 		   			velX -= (m * 10 * mew) / 100;
 		   			
@@ -6,5 +8,3 @@ if (x > 600 && velX > 0)
 		   		if (x > 600 && velX < 0)
 		   		{
 		   			velX += (m * 10 * mew) / 100;
-		   			
-		   		}
