@@ -31,33 +31,6 @@ public class trustMachine {
       }//text to put on the open menu
    }
  
-   private static class LoadImageApp extends Component {
-   //a separate class to allow getContentPane to have a component to add    
-	    BufferedImage img;
-	    String userprofile = System.getenv("USERPROFILE");
-	    public void paint(Graphics g) {
-	        g.drawImage(img, 0, 0, 1920, 1080, null);
-	        Second s = new Second();
-	        //opens the second class with the game code
-	        JFrame f = new JFrame();
-	        f.add(s);
-	        f.setVisible(true);
-	        f.setSize(1920, 1080);
-	        //full screen size
-	        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	        f.setTitle("Moving Ball-Level 1");
-	        //name of the game window
-	    }
-	 
-	    public LoadImageApp() {
-	       try {
-	           img = ImageIO.read(new File(userprofile+"\\Desktop\\floorstory.jpg"));
-	         //image path to large, high quality cloud image on user's desktop
-	       } catch (IOException e) {
-	       }
-	    }
-	}
- 
    
    private static class ButtonHandler implements ActionListener {
 	      public void actionPerformed(ActionEvent e) {
@@ -65,10 +38,18 @@ public class trustMachine {
 	    	  //when the button is clicked, a Level 1 window is made
 	          frame.setSize(1920,1100);
 	          //makes a full screen window
-	          frame.getContentPane().add(new LoadImageApp());
+	          
 	          //LoadImageApp has the ode the start the game
 	          frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	          frame.setVisible(true);
+	          Second s = new Second();
+		      //opens the second class with the game code
+		      frame.add(s);
+		      frame.setVisible(true);
+		      frame.setSize(1920, 1080);
+		      //full screen size
+		      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		       frame.setTitle("Moving Ball-Level 1");  
 	      }
 	  }
    
