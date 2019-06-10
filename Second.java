@@ -19,6 +19,8 @@ public class Second extends JPanel implements ActionListener, KeyListener{
 	double tempY = 0;
 	double tempVX = 0;
 	double tempVY = 0;
+	double deathx = 0;
+	double deathy = 0;
 	boolean collide = false;
 	Ellipse2D circle ;
 	Rectangle2D a = new Rectangle2D.Double(105, 950, 100, 10);
@@ -30,7 +32,8 @@ public class Second extends JPanel implements ActionListener, KeyListener{
 	Rectangle2D h = new Rectangle2D.Double(1450,250, 200, 10);
 	
 	
-	Rectangle2D death1 = new Rectangle2D.Double(370, 880, 50, 60);
+	Rectangle2D death1 = new Rectangle2D.Double(580, 690, 50, 60);
+	Rectangle2D[] deathEntity = {death1};
 	
 	Rectangle2D[] rects = {a, b, c, d, e, f, h};
 	Rectangle[] boundz = new Rectangle[rects.length];
@@ -103,7 +106,16 @@ public class Second extends JPanel implements ActionListener, KeyListener{
 			velY = -velY/2;
 			collide = true;
 		}
-	
+	    
+	    for (int q = 0; q < deathEntity.length ; q++) {
+			  deathx = deathEntity[q].getCenterX();
+			  deathy = deathEntity[q].getCenterY();
+			  if (((x + velX) < deathx + ((deathEntity[q].getWidth())/2) ) && ((x + velX)> deathx - ((deathEntity[q].getWidth())/2) - 40 ) && ((y + velY) < deathy + ((deathEntity[q].getHeight())/2)) && ((y + velY) > deathy - ((deathEntity[q].getHeight())/2) - 40)){
+		   x = 50;
+		   y = 250;
+		  
+		  }
+	    }
 		
 	    if (!collide) {
 		x += velX;
