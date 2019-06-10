@@ -21,6 +21,7 @@ public class Second extends JPanel implements ActionListener, KeyListener{
 	double tempVY = 0;
 	double deathx = 0;
 	double deathy = 0;
+	int numJumps = 0;
 	boolean collide = false;
 	Ellipse2D circle ;
 	Rectangle2D a = new Rectangle2D.Double(105, 950, 100, 10);
@@ -33,7 +34,8 @@ public class Second extends JPanel implements ActionListener, KeyListener{
 	
 	
 	Rectangle2D death1 = new Rectangle2D.Double(580, 690, 50, 60);
-	Rectangle2D[] deathEntity = {death1};
+	Rectangle2D death2 = new Rectangle2D.Double(1170,290, 50, 60);
+	Rectangle2D[] deathEntity = {death1, death2};
 	
 	Rectangle2D[] rects = {a, b, c, d, e, f, h};
 	Rectangle[] boundz = new Rectangle[rects.length];
@@ -54,6 +56,8 @@ public class Second extends JPanel implements ActionListener, KeyListener{
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
+		g.setColor(new Color(204, 242, 255));
+		g.fillRect(0, 0, 1920, 1080);
 		circle = new Ellipse2D.Double(x, y, 40, 40);
 		g.setColor(new Color(147, 112, 219));
 		g2.fill(circle);
@@ -66,8 +70,9 @@ public class Second extends JPanel implements ActionListener, KeyListener{
 		   g.fillRect(950, 550, 150, 10);
 		   g.fillRect(1100,350, 200, 10);
 		   g.fillRect(1450,250, 200, 10);
-		   g.setColor(new Color(255,0,0));
+		   g.setColor(new Color(220,20,60));
 		   g.fillRect(580, 690, 50, 60);
+		   g.fillRect(1170,290, 50, 60);
 		   g.setColor(new Color(75,0,130));
 		   g.fillOval(1700, 50, 60, 80);
 		   for (int i = 0; i < rects.length; i++) {
@@ -77,6 +82,9 @@ public class Second extends JPanel implements ActionListener, KeyListener{
 	public void actionPerformed(ActionEvent e) {
 		
 		velY += accY;
+		
+	
+		
 		if (velX > 0) {
 			velX -= accX;
 		}
